@@ -1,20 +1,19 @@
 # Errors
 
-<aside class="notice">This error section is stored in a separate file in `includes/_errors.md`. Slate allows you to optionally separate out your docs into many files...just save them to the `includes` folder and add them to the top of your `index.md`'s frontmatter. Files are included in the order listed.</aside>
-
-The Kittn API uses the following error codes:
+The Sense API uses the following error codes:
 
 
-Error Code | Meaning
----------- | -------
-400 | Bad Request -- Your request sucks
-401 | Unauthorized -- Your API key is wrong
-403 | Forbidden -- The kitten requested is hidden for administrators only
-404 | Not Found -- The specified kitten could not be found
-405 | Method Not Allowed -- You tried to access a kitten with an invalid method
-406 | Not Acceptable -- You requested a format that isn't json
-410 | Gone -- The kitten requested has been removed from our servers
+Error Code | Name | Cause
+---------- | ------- | -------
+400 | Bad Request | Your request sucks / Request was not valid JSON, or did not pass server-side validation
+401 | Unauthorized | Your API key is wrong / Endpoint requires authentication (in the form of JWT token) which thse request did not provide
+403 | Forbidden | Token provided by the request does not have the authorization (usually only the owner of the object can edit or delete it)
+404 | Not Found | The specified record was not found. Note that this can also be returned if the API route is invalid
+405 | Method Not Allowed | The request method (POST, PUT, DELETE etc.) is not accepted on this route
+406 | Not Acceptable | You requested a format that isn't json
+410 | Gone | The API requested has been removed from our servers
 418 | I'm a teapot
-429 | Too Many Requests -- You're requesting too many kittens! Slow down!
-500 | Internal Server Error -- We had a problem with our server. Try again later.
-503 | Service Unavailable -- We're temporarially offline for maintanance. Please try again later.
+429 | Too Many Requests | You're requesting too much! Slow down!
+500 | Internal Server Error | We had a problem with our server. Try again later.
+503 | Service Unavailable | We're temporarially offline for maintanance. Please try again later.
+ss
